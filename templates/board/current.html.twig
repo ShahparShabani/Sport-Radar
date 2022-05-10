@@ -15,9 +15,6 @@
 					<th>AwayTeam</th>
 					<th>HomeScore</th>
 					<th>AwayScore</th>
-					<th>Finished</th>
-					<th>actions</th>
-				</tr>
 			</thead>
 			<tbody>
 				{% for board in boards %}
@@ -27,11 +24,6 @@
 						<td>{{ board.awayTeam }}</td>
 						<td>{{ board.homeScore }}</td>
 						<td>{{ board.awayScore }}</td>
-						<td>{{ board.finished ? 'Yes' : 'No' }}</td>
-						<td>
-							<a href="{{ path('app_board_show', {'id': board.id}) }}">show</a>
-							<a href="{{ path('app_board_edit', {'id': board.id}) }}">edit</a>
-						</td>
 					</tr>
 				{% else %}
 					<tr>
@@ -40,8 +32,6 @@
 				{% endfor %}
 			</tbody>
 		</table>
-
-		<a href="{{ path('app_board_new') }}">Create new</a>
 	</div>
 
 {% endblock %}

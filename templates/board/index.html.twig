@@ -33,8 +33,15 @@
 						<td>{{ board.createdAt ? board.createdAt|date('Y-m-d H:i:s') : '' }}</td>
 						<td>{{ board.updatedAt ? board.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
 						<td>
-							<a href="{{ path('app_board_show', {'id': board.id}) }}">show</a>
-							<a href="{{ path('app_board_edit', {'id': board.id}) }}">edit</a>
+							<a class="c-a-icon" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Show User" href="{{ path('board_details', {'id': board.id}) }}">
+								<i class="fas fa-eye c-icon-eye" style="color:#FE0200;"></i>
+							</a>
+							<a class="c-a-icon" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Edit User" href="{{ path('board_edit', {'id': board.id}) }}">
+								<i class="fas fa-pencil-alt" style="color:#01003C;"></i>
+							</a>
+							<a class="c-a-icon" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Delete User" href="{{ path('board_delete', {'id': board.id}) }}">
+								<i class="fas fa-trash-alt" style="color:#FE0200;"></i>
+							</a>
 						</td>
 					</tr>
 				{% else %}

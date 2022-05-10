@@ -50,6 +50,7 @@ class BoardController extends AbstractController
             $board->setCreatedAt(new \DateTime());
             $board->setHomeScore(0);
             $board->setAwayScore(0);
+            $board->setFinished(0);
             $entityManager->persist($board);
             $entityManager->flush();
 
@@ -62,7 +63,7 @@ class BoardController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'app_board_show', methods: ['GET'])]
+    #[Route('/{id}/details', name: 'board_details', methods: ['GET'])]
     public function show(Board $board): Response
     {
         return $this->render('board/show.html.twig', [
@@ -70,7 +71,7 @@ class BoardController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}/edit', name: 'app_board_edit', methods: ['GET', 'POST'])]
+    #[Route('/{id}/edit', name: 'board_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Board $board, EntityManagerInterface $entityManager): Response
     {
         $form = $this->createForm(BoardType::class, $board);
@@ -88,13 +89,12 @@ class BoardController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'app_board_delete', methods: ['POST'])]
+    #[Route('/{id}', name: 'board_delete', methods: ['GET', 'POST'])]
     public function delete(Request $request, Board $board, EntityManagerInterface $entityManager): Response
     {
-        if ($this->isCsrfTokenValid('delete' . $board->getId(), $request->request->get('_token'))) {
-            $entityManager->remove($board);
-            $entityManager->flush();
-        }
+        $entityManager->remove($board);
+        $entityManager->flush();
+
 
         return $this->redirectToRoute('app_board_index', [], Response::HTTP_SEE_OTHER);
     }

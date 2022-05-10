@@ -14,14 +14,14 @@ use Symfony\Component\Routing\Annotation\Route;
 #[Route('/board')]
 class BoardController extends AbstractController
 {
-    #[Route('/current', name: 'app_board_index', methods: ['GET'])]
+    #[Route('/current', name: 'app_board_current', methods: ['GET'])]
     public function current(EntityManagerInterface $entityManager): Response
     {
         $boards = $entityManager
             ->getRepository(Board::class)
-            ->findAll();
+            ->findBy(['finished' => 0]);
 
-        return $this->render('board/index.html.twig', [
+        return $this->render('board/current.html.twig', [
             'boards' => $boards,
         ]);
     }

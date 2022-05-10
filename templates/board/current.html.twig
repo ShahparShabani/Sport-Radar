@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Current Board
+{% endblock %}
+
+{% block body %}
+	<div class="container mt-5">
+		<h1>Current Board</h1>
+
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Id</th>
+					<th>HomeTeam</th>
+					<th>AwayTeam</th>
+					<th>HomeScore</th>
+					<th>AwayScore</th>
+					<th>Finished</th>
+					<th>actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for board in boards %}
+					<tr>
+						<td>{{ board.id }}</td>
+						<td>{{ board.homeTeam }}</td>
+						<td>{{ board.awayTeam }}</td>
+						<td>{{ board.homeScore }}</td>
+						<td>{{ board.awayScore }}</td>
+						<td>{{ board.finished ? 'Yes' : 'No' }}</td>
+						<td>
+							<a href="{{ path('app_board_show', {'id': board.id}) }}">show</a>
+							<a href="{{ path('app_board_edit', {'id': board.id}) }}">edit</a>
+						</td>
+					</tr>
+				{% else %}
+					<tr>
+						<td colspan="9">no records found</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+
+		<a href="{{ path('app_board_new') }}">Create new</a>
+	</div>
+
+{% endblock %}

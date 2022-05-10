@@ -1,0 +1,217 @@
+@import partials/fonts
+@import partials/colors
+
+// tests/index.html.twig
+@import 'partials/all_prod'
+
+html, *
+//    font-size: 1em !important
+//    color: #000 !important
+    font-family: $ubu-m !important
+
+// Place footer on the bottom of the page even there is no enough content
+.body-wrapper
+    display: flex
+    min-height: 100vh
+    flex-direction: column
+
+.body-content
+    flex: 1
+
+.c-border-grey
+    border: #E1E1E1
+
+.c-href-success
+    color: $nav-bg
+
+.c-href-success:hover
+    color: black
+
+.c-href-black
+    color: black
+
+.c-href-black:hover
+    color: $nav-bg
+
+.zoom
+    transition: transform .2s /* Animation */
+    margin: 0 auto
+
+.zoom:hover
+    transform: scale(1.1) /* (150% zoom)*/
+
+// Nav bar
+.c-header-nav
+    background-color: $nav-bg !important
+
+.c-header-nav-brand
+    letter-spacing: 10px !important
+
+// Nav bar
+.c-footer-nav
+    background-color: $gray-300 !important
+
+.c-btn-success
+    background-color: $btn-success-bg !important
+
+.c-btn-success:hover
+    background-color: black !important
+    color: white !important
+
+.c-btn-white
+    border-color: #2F3E48
+    color: #2F3E48
+
+.c-btn-white:hover
+    background-color: black !important
+    color: white !important
+
+.c-button--normal
+    font-size: 0.875rem
+    line-height: 1.25rem
+    letter-spacing: 0.08em
+    padding: 1.188rem 3.4375rem
+
+.c-button--large
+    font-size: 1rem
+    line-height: 1.25rem
+    letter-spacing: 0.08em
+    padding: 1.5rem 3.4375rem
+
+.c-table-cream
+    background: $container-bg !important
+
+.c-table
+    th
+        text-align: center
+        padding: 10px
+
+    tr
+        height: 3rem
+
+    td
+        text-align: center
+        padding: 10px
+
+.c-table-form
+    th
+        padding: 10px
+
+    tr
+        height: 3.5rem
+
+    td
+        padding: 10px
+
+.c-alert-info
+    color: #64461a
+    background-color: $container-bg
+    border-color: $nav-bg
+
+.fa-stack[data-count]:after
+    position: absolute
+    right: 0%
+    top: 0%
+    content: attr(data-count)
+    font-size: 40%
+    padding: .6em
+    border-radius: 999px
+    line-height: .75em
+    color: white
+    text-align: center
+    min-width: 2em
+    font-weight: bold
+    background: white
+    border-style: solid
+
+.fa-circle
+    color: #DF0000
+
+.red-cart
+    color: #DF0000
+    background: white
+
+.c-table
+    a
+        text-decoration: none
+
+
+footer 
+  font-family: "Montserrat", sans-serif
+  background-color: $gray-300
+  
+  img.c-footer-logo 
+    width: 15%
+    margin: -2rem 0 0.8rem 0
+ 
+
+  li:hover,
+  a:hover 
+    cursor: pointer
+    font-weight: bold
+ 
+
+
+// media queries for x-small screen
+@media screen and (max-width: 575px) 
+  footer 
+    font-size: 0.8rem
+    h4 
+      font-size: 1rem
+   
+
+    div.c-footer-text 
+      display: none !important
+   
+ 
+
+
+// media queries for small screen
+@media screen and (min-width: 576px) and (max-width: 767px) 
+  footer 
+    font-size: 0.8rem
+
+    .c-footer-text 
+      p.c-firstP 
+        margin: 0 -1.5rem
+     
+      p.c-secondP 
+        margin: 0 -1rem
+     
+      img 
+        width: 30%
+        margin-top: -1.5rem
+     
+   
+ 
+
+
+@media screen and (min-width: 768px) and (max-width: 991px) 
+  footer 
+    .c-footer-text 
+      p.c-firstP 
+        margin: 0 -1.8rem
+     
+      p.c-secondP 
+        margin: 0 -1rem
+     
+      img 
+        width: 30%
+        margin-top: -2rem
+     
+   
+ 
+
+
+// media queries for xl-xxl screen
+@media screen and (min-width: 1200px) 
+  footer 
+    p.c-secondP 
+      margin-left: -1.7rem
+   
+
+    p.c-firstP 
+      margin-right: -2.2rem
+   
+ 
+

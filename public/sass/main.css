@@ -1,0 +1,260 @@
+@font-face {
+  font-family: ubu-l;
+  src: url("../font-ubu/Ubuntu-L.ttf");
+}
+
+@font-face {
+  font-family: ubu-r;
+  src: url("../font-ubu/Ubuntu-R.ttf");
+}
+
+@font-face {
+  font-family: ubu-m;
+  src: url("../font-ubu/Ubuntu-M.ttf");
+}
+
+/** Color Palette **/
+/* Basic colors*/
+/* gray */
+/* Yellow */
+/* Amber */
+/* Orange */
+.index-container {
+  background-image: url("../pictures/bg.webp");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+}
+
+.index-title {
+  color: red;
+}
+
+.body-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  min-height: 100vh;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.body-content {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.c-border-grey {
+  border: #E1E1E1;
+}
+
+.c-href-success {
+  color: #C6AD89;
+}
+
+.c-href-success:hover {
+  color: black;
+}
+
+.c-href-black {
+  color: black;
+}
+
+.c-href-black:hover {
+  color: #C6AD89;
+}
+
+.zoom {
+  -webkit-transition: -webkit-transform 0.2s;
+  transition: -webkit-transform 0.2s;
+  transition: transform 0.2s;
+  transition: transform 0.2s, -webkit-transform 0.2s;
+  margin: 0 auto;
+}
+
+.zoom:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+.c-header-nav {
+  background-color: #C6AD89 !important;
+}
+
+.c-header-nav-brand {
+  letter-spacing: 10px !important;
+}
+
+.c-footer-nav {
+  background-color: #dee2e6 !important;
+}
+
+.c-btn-success {
+  background-color: #C6AD89 !important;
+}
+
+.c-btn-success:hover {
+  background-color: black !important;
+  color: white !important;
+}
+
+.c-btn-white {
+  border-color: #2F3E48;
+  color: #2F3E48;
+}
+
+.c-btn-white:hover {
+  background-color: black !important;
+  color: white !important;
+}
+
+.c-button--normal {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  letter-spacing: 0.08em;
+  padding: 1.188rem 3.4375rem;
+}
+
+.c-button--large {
+  font-size: 1rem;
+  line-height: 1.25rem;
+  letter-spacing: 0.08em;
+  padding: 1.5rem 3.4375rem;
+}
+
+.c-table-cream {
+  background: #F4EFE7 !important;
+}
+
+.c-table th {
+  text-align: center;
+  padding: 10px;
+}
+
+.c-table tr {
+  height: 3rem;
+}
+
+.c-table td {
+  text-align: center;
+  padding: 10px;
+}
+
+.c-table-form th {
+  padding: 10px;
+}
+
+.c-table-form tr {
+  height: 3.5rem;
+}
+
+.c-table-form td {
+  padding: 10px;
+}
+
+.c-alert-info {
+  color: #64461a;
+  background-color: #F4EFE7;
+  border-color: #C6AD89;
+}
+
+.fa-stack[data-count]:after {
+  position: absolute;
+  right: 0%;
+  top: 0%;
+  content: attr(data-count);
+  font-size: 40%;
+  padding: .6em;
+  border-radius: 999px;
+  line-height: .75em;
+  color: white;
+  text-align: center;
+  min-width: 2em;
+  font-weight: bold;
+  background: white;
+  border-style: solid;
+}
+
+.fa-circle {
+  color: #DF0000;
+}
+
+.red-cart {
+  color: #DF0000;
+  background: white;
+}
+
+.c-table a {
+  text-decoration: none;
+}
+
+footer {
+  font-family: "Montserrat", sans-serif;
+  background-color: #dee2e6;
+}
+
+footer img.c-footer-logo {
+  width: 15%;
+  margin: -2rem 0 0.8rem 0;
+}
+
+footer li:hover,
+footer a:hover {
+  cursor: pointer;
+  font-weight: bold;
+}
+
+@media screen and (max-width: 575px) {
+  footer {
+    font-size: 0.8rem;
+  }
+  footer h4 {
+    font-size: 1rem;
+  }
+  footer div.c-footer-text {
+    display: none !important;
+  }
+}
+
+@media screen and (min-width: 576px) and (max-width: 767px) {
+  footer {
+    font-size: 0.8rem;
+  }
+  footer .c-footer-text p.c-firstP {
+    margin: 0 -1.5rem;
+  }
+  footer .c-footer-text p.c-secondP {
+    margin: 0 -1rem;
+  }
+  footer .c-footer-text img {
+    width: 30%;
+    margin-top: -1.5rem;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  footer .c-footer-text p.c-firstP {
+    margin: 0 -1.8rem;
+  }
+  footer .c-footer-text p.c-secondP {
+    margin: 0 -1rem;
+  }
+  footer .c-footer-text img {
+    width: 30%;
+    margin-top: -2rem;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  footer p.c-secondP {
+    margin-left: -1.7rem;
+  }
+  footer p.c-firstP {
+    margin-right: -2.2rem;
+  }
+}
+/*# sourceMappingURL=main.css.map */

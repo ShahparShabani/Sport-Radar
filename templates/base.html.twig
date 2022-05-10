@@ -1,21 +1,43 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
-        {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
-        {# Import Bootstrap #}
-        {% include "components/css.html.twig" %}
-        {% block stylesheets %}
-            {{ encore_entry_link_tags('app') }}
-        {% endblock %}
+	<head>
+		<meta charset="UTF-8">
+		<title>
+			{% block title %}Welcome!
+			{% endblock %}
+		</title>
+		{# Run `composer require symfony/webpack-encore-bundle`
+				           and uncomment the following Encore helpers to start using Symfony UX #}
+		{% include "components/css.html.twig" %}
+		{% block stylesheets %}
+			{#{{ encore_entry_link_tags('app') }}#}
+		{% endblock %}
 
-        {% block javascripts %}
-            {{ encore_entry_script_tags('app') }}
-        {% endblock %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-    </body>
+		{% block javascripts %}
+			{#{{ encore_entry_script_tags('app') }}#}
+		{% endblock %}
+	</head>
+	<body class="body-wrapper">
+
+		<header>
+			{% include "components/navbar.html.twig" %}
+
+			{# Display carousel only in home page  #} 
+			{% if app.request.attributes.get('_route') == 'home' %}
+				{% include "components/carousel.html.twig" %}
+			{% endif %}
+
+		</header>
+
+		<main class="body-content">
+
+			{% block body %}{% endblock %}
+		</main>
+
+		<footer>
+			{% include "components/footer.html.twig" %}
+		</footer>
+		{% include "components/js.html.twig" %}
+
+	</body>
 </html>

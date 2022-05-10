@@ -14,6 +14,18 @@ use Symfony\Component\Routing\Annotation\Route;
 #[Route('/board')]
 class BoardController extends AbstractController
 {
+    #[Route('/current', name: 'app_board_index', methods: ['GET'])]
+    public function current(EntityManagerInterface $entityManager): Response
+    {
+        $boards = $entityManager
+            ->getRepository(Board::class)
+            ->findAll();
+
+        return $this->render('board/index.html.twig', [
+            'boards' => $boards,
+        ]);
+    }
+
     #[Route('/', name: 'app_board_index', methods: ['GET'])]
     public function index(EntityManagerInterface $entityManager): Response
     {
@@ -36,6 +48,8 @@ class BoardController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $board->setUpdatedAt(new \DateTime());
             $board->setCreatedAt(new \DateTime());
+            $board->setHomeScore(0);
+            $board->setAwayScore(0);
             $entityManager->persist($board);
             $entityManager->flush();
 

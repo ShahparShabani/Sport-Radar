@@ -82,11 +82,16 @@
 }
 
 .c-header-nav {
-  background-color: #C6AD89 !important;
+  background-color: #FE0200 !important;
 }
 
 .c-header-nav-brand {
   letter-spacing: 10px !important;
+}
+
+.c-footer-wrapper {
+  background-color: #01003C !important;
+  color: #fff;
 }
 
 .c-footer-nav {
@@ -206,6 +211,10 @@ footer li:hover,
 footer a:hover {
   cursor: pointer;
   font-weight: bold;
+}
+
+.c-text-red {
+  color: #FE0200;
 }
 
 @media screen and (max-width: 575px) {

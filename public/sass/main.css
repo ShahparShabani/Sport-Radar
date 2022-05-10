@@ -99,11 +99,11 @@
 }
 
 .c-btn-success {
-  background-color: #C6AD89 !important;
+  background-color: #FF0100 !important;
 }
 
 .c-btn-success:hover {
-  background-color: black !important;
+  background-color: #01003C !important;
   color: white !important;
 }
 

@@ -17,9 +17,9 @@ class BoardType extends AbstractType
         $builder
             ->add('homeTeam', TextType::class, array('attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
             ->add('awayTeam', TextType::class, array('attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
-            ->add('homeScore', IntegerType::class, array('attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
-            ->add('awayScore', IntegerType::class, array('attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
-            ->add('Finished', CheckboxType::class)
+            ->add('homeScore', IntegerType::class, array('required' => false, 'attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
+            ->add('awayScore', IntegerType::class, array('required' => false, 'attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px')))
+            ->add('Finished', CheckboxType::class, array('required' => false))
         ;
     }
 

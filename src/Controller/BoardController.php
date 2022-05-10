@@ -19,7 +19,7 @@ class BoardController extends AbstractController
     {
         $boards = $entityManager
             ->getRepository(Board::class)
-            ->findBy(['finished' => 0]);
+            ->findBy(['finished' => 0], array('totalScore' => 'DESC', 'updatedAt' => 'DESC'));
 
         return $this->render('board/current.html.twig', [
             'boards' => $boards,
@@ -32,7 +32,7 @@ class BoardController extends AbstractController
         $boards = $entityManager
             ->getRepository(Board::class)
             ->findAll();
-
+      
         return $this->render('board/index.html.twig', [
             'boards' => $boards,
         ]);
@@ -46,11 +46,16 @@ class BoardController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            // Get current time & set created and updated time
             $board->setUpdatedAt(new \DateTime());
             $board->setCreatedAt(new \DateTime());
+
+            //Initialization
             $board->setHomeScore(0);
             $board->setAwayScore(0);
             $board->setFinished(0);
+            $board->setTotalScore(0);
+
             $entityManager->persist($board);
             $entityManager->flush();
 
@@ -78,6 +83,8 @@ class BoardController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $totalScore = $board->getHomeScore() + $board->getAwayScore();
+            $board->setTotalScore($totalScore);
             $entityManager->flush();
 
             return $this->redirectToRoute('app_board_index', [], Response::HTTP_SEE_OTHER);

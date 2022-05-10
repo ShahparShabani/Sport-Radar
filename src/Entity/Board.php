@@ -34,6 +34,9 @@ class Board
     #[ORM\Column(type: 'datetime')]
     private $updatedAt;
 
+    #[ORM\Column(type: 'integer', nullable: true)]
+    private $totalScore;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -119,6 +122,18 @@ class Board
     public function setUpdatedAt(\DateTimeInterface $updatedAt): self
     {
         $this->updatedAt = $updatedAt;
+
+        return $this;
+    }
+
+    public function getTotalScore(): ?int
+    {
+        return $this->totalScore;
+    }
+
+    public function setTotalScore(?int $totalScore): self
+    {
+        $this->totalScore = $totalScore;
 
         return $this;
     }
